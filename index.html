@@ -245,7 +245,7 @@
         }
         
         .chat-container {
-            height: 100vh;   /* full chi?u cao màn hình */
+            height: 100vh;   /* full chiều cao màn hình */
             margin: 0;
             padding: 0;
             display: flex;
@@ -270,7 +270,7 @@
             color: #f8fafc;
         }
         
-        /* Dark mode cho t?t c? elements */
+        /* Dark mode cho tất cả elements */
         .dark .bg-white { background-color: #1a1a2e !important; }
         .dark .bg-gray-50 { background-color: #0f0f23 !important; }
         .dark .bg-gray-100 { background-color: #16213e !important; }
@@ -361,13 +361,19 @@
             transform: scale(1.05);
         }
         
-        /* Nút dóng sidebar */
+        /* Nút đóng sidebar */
         #closeSidebar:hover {
             transform: scale(1.05);
         }
         
 
-        
+        /* Loại bỏ đường viền (outline) khi nhấn vào nút sidebar */
+.sidebar-toggle:focus,
+.sidebar-toggle:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
 
     </style>
 </head>
@@ -379,14 +385,16 @@
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
                     <!-- Logo sidebar -->
-                    <img src="https://i.postimg.cc/Jyz7fhf8/image.png" alt="NovaX AI Sidebar Logo" class="w-10 h-10 object-contain drop-shadow-lg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-<div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg" style="display: none;">
-    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-    </svg>
-</div>
+                    <div class="w-10 h-10 flex items-center justify-center">
+                        <img src="https://i.postimg.cc/Jyz7fhf8/image.png" alt="NovaX AI Sidebar Logo" class="w-10 h-10 object-contain drop-shadow-lg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg" style="display: none;">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                    </div>
                     <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">NovaX AI</h1>
-                    <!-- Thay "NovaX" b?ng tên b?n mu?n -->
+                    <!-- Thay "NovaX" bằng tên bạn muốn -->
                 </div>
                 <img id="closeSidebar" src="https://i.postimg.cc/p5FLs1gn/image.png" alt="Close Sidebar" class="lg:hidden w-10 h-10 object-contain drop-shadow-2xl hover:drop-shadow-[0_8px_30px_rgba(0,0,0,0.4)] transition-all duration-300 hover:scale-125 cursor-pointer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <svg class="lg:hidden w-10 h-10 text-gray-500 hover:text-red-500 drop-shadow-2xl hover:scale-125 cursor-pointer transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;" onclick="document.getElementById('closeSidebar').click();">
@@ -401,13 +409,13 @@
                     <svg class="w-5 h-5 rotate-in transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                     </svg>
-                    <span class="transition-all duration-300">T?o cu?c trò chuy?n m?i</span>
+                    <span class="transition-all duration-300">Tạo cuộc trò chuyện mới</span>
                 </span>
             </button>
             
             <div class="mb-6">
                 <div class="relative">
-                    <input type="text" id="searchInput" placeholder="Tìm ki?m cu?c trò chuy?n..." 
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm cuộc trò chuyện..." 
                            class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:shadow-md focus:shadow-lg">
                     <svg class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -426,7 +434,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
-                <span>Cài d?t</span>
+                <span>Cài đặt</span>
             </button>
 
             <button id="themeToggle" class="w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-xl transition-all duration-300 flex items-center space-x-3">
@@ -478,14 +486,14 @@
                     <h1 class="text-6xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent slide-in-left">NovaX AI</h1>
 
                     <!-- Câu chào -->
-                    <p class="text-xl text-gray-600 dark:text-gray-300 font-medium">Xin chào! Tôi có th? giúp gì cho b?n?</p>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 font-medium">Xin chào! Tôi có thể giúp gì cho bạn?</p>
                 </div>
                 
                 <div class="relative max-w-6xl mx-auto">
                     <div class="relative group">
                         <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
                         <div class="relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-600/50 shadow-2xl">
-                            <input type="text" id="homeInput" placeholder="Nh?p tin nh?n c?a b?n d? b?t d?u cu?c trò chuy?n..." 
+                            <input type="text" id="homeInput" placeholder="Nhập tin nhắn của bạn để bắt đầu cuộc trò chuyện..." 
                                    class="w-full px-10 py-7 pr-20 text-xl bg-transparent border-none rounded-2xl focus:outline-none text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500/20">
                             <button id="homeSendBtn" class="absolute right-5 top-1/2 transform -translate-y-1/2 text-blue-600 hover:text-blue-700 p-4 rounded-xl hover:bg-blue-50 transition-all duration-300 hover:scale-110 hover:rotate-3">
                                 <svg class="w-7 h-7 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -500,7 +508,7 @@
                                 <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                 </svg>
-                                <span>Nh?n Enter d? g?i</span>
+                                <span>Nhấn Enter để gửi</span>
                             </span>
                             <div class="w-px h-4 bg-gray-300 dark:bg-gray-600"></div>
                             <span class="flex items-center space-x-2">
@@ -527,7 +535,7 @@
                         <div class="relative group">
                             <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
                             <div class="relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-xl border border-gray-200/50 dark:border-gray-600/50 shadow-lg">
-                                <input type="text" id="chatInput" placeholder="Nh?p tin nh?n c?a b?n…" 
+                                <input type="text" id="chatInput" placeholder="Nhập tin nhắn của bạn…" 
                                        class="w-full px-8 py-5 pr-18 text-lg bg-transparent border-none rounded-xl focus:outline-none text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500/20">
                                 <button id="sendBtn" class="absolute right-5 top-1/2 transform -translate-y-1/2 text-blue-600 hover:text-blue-700 p-3 rounded-lg hover:bg-blue-50 transition-all duration-300 hover:scale-110 hover:rotate-3">
                                     <svg class="w-6 h-6 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -536,9 +544,9 @@
                                 </button>
                             </div>
                         </div>
-                        <!-- ?? Dòng c?nh báo -->
+                        <!-- ⚠️ Dòng cảnh báo -->
                         <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 text-center">
-                            NovaX có th? m?c l?i. Hãy ki?m tra các thông tin quan tr?ng.
+                            NovaX có thể mắc lỗi. Hãy kiểm tra các thông tin quan trọng.
                         </p>
                     </div>
                 </div>
@@ -549,31 +557,31 @@
     <!-- Settings Modal -->
     <div id="settingsModal" class="fixed inset-0 bg-black bg-opacity-50 z-[100] hidden flex items-center justify-center">
         <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="settingsContent">
-            <h2 class="text-xl font-bold mb-4">Cài d?t</h2>
+            <h2 class="text-xl font-bold mb-4">Cài đặt</h2>
             <div class="space-y-4">
-                <!-- Ch?n Model AI -->
+                <!-- Chọn Model AI -->
                 <div class="border-b border-gray-200 pb-4">
                     <div class="px-4 py-3">
                         <div class="flex items-center space-x-3 mb-3">
                             <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                             </svg>
-                            <span class="font-medium text-gray-900">Ch?n Model AI</span>
+                            <span class="font-medium text-gray-900">Chọn Model AI</span>
                         </div>
                         <div class="space-y-2">
                             <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-all duration-300">
                                 <input type="radio" name="aiModel" value="gemini" class="mr-3 text-blue-600 focus:ring-blue-500" checked>
                                 <div class="flex-1">
                                     <div class="font-medium text-gray-900">NovaX (v1.0) - Gemini Flash 2.0</div>
-                                    <div class="text-sm text-gray-500">Dùng d? chat h?ng ngày</div>
+                                    <div class="text-sm text-gray-500">Dùng để chat hằng ngày</div>
                                 </div>
-                                <div class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Khuy?n ngh?</div>
+                                <div class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Khuyến nghị</div>
                             </label>
                             <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-all duration-300">
                                 <input type="radio" name="aiModel" value="llama" class="mr-3 text-blue-600 focus:ring-blue-500">
                                 <div class="flex-1">
                                     <div class="font-medium text-gray-900">NovaX (v2.0) - Llama 3.1 8B Instant</div>
-                                    <div class="text-sm text-gray-500">AI siêu nhanh t? Meta trên Groq</div>
+                                    <div class="text-sm text-gray-500">AI siêu nhanh từ Meta trên Groq</div>
                                 </div>
                                 <div class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Siêu nhanh</div>
                             </label>
@@ -581,14 +589,14 @@
                     </div>
                 </div>
                 
-                <!-- Gi?i thi?u -->
+                <!-- Giới thiệu -->
                 <div class="border-b border-gray-200 pb-4">
                     <button id="aboutBtn" class="w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-all duration-300 flex items-center justify-between">
                         <div class="flex items-center space-x-3">
                             <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            <span>Gi?i thi?u</span>
+                            <span>Giới thiệu</span>
                         </div>
                         <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -598,24 +606,24 @@
                 
 
                 
-                <!-- Xóa t?t c? tin nh?n -->
+                <!-- Xóa tất cả tin nhắn -->
                 <div class="border-b border-gray-200 pb-4">
                     <button id="clearAllBtn" class="w-full text-left px-4 py-3 text-red-600 hover:bg-red-50 rounded-lg transition-all duration-300 flex items-center space-x-3">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                         </svg>
-                        <span>Xóa t?t c? tin nh?n</span>
+                        <span>Xóa tất cả tin nhắn</span>
                     </button>
                 </div>
                 
-                <!-- Ph?n h?i -->
+                <!-- Phản hồi -->
                 <div>
                     <button id="feedbackBtn" class="w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-all duration-300 flex items-center justify-between">
                         <div class="flex items-center space-x-3">
                             <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                             </svg>
-                            <span>Ph?n h?i</span>
+                            <span>Phản hồi</span>
                         </div>
                         <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -624,7 +632,7 @@
                 </div>
             </div>
             <div class="flex justify-end space-x-2 mt-6">
-                <button id="cancelSettings" class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">Ðóng</button>
+                <button id="cancelSettings" class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">Đóng</button>
             </div>
         </div>
     </div>
@@ -633,7 +641,7 @@
     <div id="aboutModal" class="fixed inset-0 bg-black bg-opacity-50 z-[100] hidden flex items-center justify-center">
         <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-lg w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="aboutContent">
             <div class="flex items-center justify-between mb-4">
-                <h2 class="text-xl font-bold">Gi?i thi?u NovaX AI</h2>
+                <h2 class="text-xl font-bold">Giới thiệu NovaX AI</h2>
                 <button id="closeAbout" class="text-gray-400 hover:text-gray-600">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -653,24 +661,24 @@
                 </div>
                 <div class="text-gray-700 leading-relaxed">
                     <p class="mb-4">
-                        <strong>NovaX AI</strong> là m?t ?ng d?ng trò chuy?n AI thông minh du?c phát tri?n v?i công ngh? hi?n d?i. 
-                        ?ng d?ng tích h?p trí tu? nhân t?o Google Gemini d? mang d?n tr?i nghi?m chat t? nhiên và h?u ích.
+                        <strong>NovaX AI</strong> là một ứng dụng trò chuyện AI thông minh được phát triển với công nghệ hiện đại. 
+                        Ứng dụng tích hợp trí tuệ nhân tạo Google Gemini để mang đến trải nghiệm chat tự nhiên và hữu ích.
                     </p>
                     <p class="mb-4">
-                        V?i giao di?n d?p m?t, tính nang luu tr? cu?c trò chuy?n và nhi?u hi?u ?ng animation mu?t mà, 
-                        NovaX AI du?c thi?t k? d? ph?c v? nhu c?u h?c t?p và gi?i trí c?a ngu?i dùng.
+                        Với giao diện đẹp mắt, tính năng lưu trữ cuộc trò chuyện và nhiều hiệu ứng animation mượt mà, 
+                        NovaX AI được thiết kế để phục vụ nhu cầu học tập và giải trí của người dùng.
                     </p>
                     <div class="bg-blue-50 p-4 rounded-lg mb-4">
                         <p class="text-blue-800 font-medium">
-                            ?? M?c dích: D? án du?c t?o ra d? tham gia cu?c thi KHOA H?C KI THU?T, 
-                            th? hi?n kh? nang ?ng d?ng công ngh? trong giáo d?c và d?i s?ng.
+                            🎯 Mục đích: Dự án được tạo ra để tham gia cuộc thi KHOA HỌC KĨ THUẬT, 
+                            thể hiện khả năng ứng dụng công nghệ trong giáo dục và đời sống.
                         </p>
                     </div>
                     <div class="text-center pt-4 border-t border-gray-200">
                         <p class="text-gray-600">
-                            <strong>Ngu?i t?o:</strong><br>
-                            <span class="text-blue-600 font-semibold">Phan Tr?ng Khang | 8¹</span><br>
-                            <span class="text-sm">Tru?ng THCS Vinh Hòa</span>
+                            <strong>Người tạo:</strong><br>
+                            <span class="text-blue-600 font-semibold">Phan Trọng Khang | 8¹</span><br>
+                            <span class="text-sm">Trường THCS Vĩnh Hòa</span>
                         </p>
                     </div>
                 </div>
@@ -687,11 +695,11 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">Xóa t?t c? tin nh?n?</h3>
-                <p class="text-gray-600 mb-6">Hành d?ng này s? xóa vinh vi?n t?t c? cu?c trò chuy?n và không th? hoàn tác.</p>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Xóa tất cả tin nhắn?</h3>
+                <p class="text-gray-600 mb-6">Hành động này sẽ xóa vĩnh viễn tất cả cuộc trò chuyện và không thể hoàn tác.</p>
                 <div class="flex space-x-3">
-                    <button id="cancelClearAll" class="flex-1 px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">H?y</button>
-                    <button id="confirmClearAll" class="flex-1 px-4 py-2 bg-red-600 text-white hover:bg-red-700 rounded-lg transition-colors">Xóa t?t c?</button>
+                    <button id="cancelClearAll" class="flex-1 px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">Hủy</button>
+                    <button id="confirmClearAll" class="flex-1 px-4 py-2 bg-red-600 text-white hover:bg-red-700 rounded-lg transition-colors">Xóa tất cả</button>
                 </div>
             </div>
         </div>
@@ -703,7 +711,7 @@
     <div id="feedbackModal" class="fixed inset-0 bg-black bg-opacity-50 z-[100] hidden flex items-center justify-center">
         <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="feedbackContent">
             <div class="flex items-center justify-between mb-4">
-                <h2 class="text-xl font-bold">Ðánh giá ?ng d?ng</h2>
+                <h2 class="text-xl font-bold">Đánh giá ứng dụng</h2>
                 <button id="closeFeedback" class="text-gray-400 hover:text-gray-600">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -712,22 +720,22 @@
             </div>
             <div class="space-y-4">
                 <div class="text-center">
-                    <p class="text-gray-600 mb-4">B?n c?m th?y ?ng d?ng NovaX nhu th? nào?</p>
+                    <p class="text-gray-600 mb-4">Bạn cảm thấy ứng dụng NovaX như thế nào?</p>
                     <div class="flex justify-center space-x-2 mb-4" id="starRating">
-                        <button class="star text-3xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="1">?</button>
-                        <button class="star text-3xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="2">?</button>
-                        <button class="star text-3xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="3">?</button>
-                        <button class="star text-3xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="4">?</button>
-                        <button class="star text-3xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="5">?</button>
+                        <button class="star text-3xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="1">★</button>
+                        <button class="star text-3xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="2">★</button>
+                        <button class="star text-3xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="3">★</button>
+                        <button class="star text-3xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="4">★</button>
+                        <button class="star text-3xl text-gray-300 hover:text-yellow-400 transition-colors" data-rating="5">★</button>
                     </div>
-                    <p id="ratingText" class="text-sm text-gray-500 mb-4">Nh?n vào sao d? dánh giá</p>
+                    <p id="ratingText" class="text-sm text-gray-500 mb-4">Nhấn vào sao để đánh giá</p>
                 </div>
-                <textarea id="feedbackText" placeholder="Chia s? ý ki?n c?a b?n v? ?ng d?ng..." 
+                <textarea id="feedbackText" placeholder="Chia sẻ ý kiến của bạn về ứng dụng..." 
                           class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" 
                           rows="3"></textarea>
                 <div class="flex space-x-3">
-                    <button id="cancelFeedback" class="flex-1 px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">H?y</button>
-                    <button id="submitFeedback" class="flex-1 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 rounded-lg transition-colors">G?i dánh giá</button>
+                    <button id="cancelFeedback" class="flex-1 px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">Hủy</button>
+                    <button id="submitFeedback" class="flex-1 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 rounded-lg transition-colors">Gửi đánh giá</button>
                 </div>
             </div>
         </div>
@@ -1018,7 +1026,7 @@
                     await this.getAIResponse(trimmedMessage, aiMessage);
                 } catch (error) {
                     console.error('Error getting AI response:', error);
-                    aiMessage.content = "Xin l?i, dã có l?i x?y ra. Vui lòng th? l?i.";
+                    aiMessage.content = "Xin lỗi, đã có lỗi xảy ra. Vui lòng thử lại.";
                     aiMessage.isTyping = false;
                     this.updateMessage(aiMessage);
                 } finally {
@@ -1035,7 +1043,7 @@
                     }
                 } catch (error) {
                     console.error('AI API Error:', error);
-                    aiMessage.content = "Xin l?i, hi?n t?i tôi không th? tr? l?i. Vui lòng ki?m tra k?t n?i m?ng ho?c th? l?i sau.";
+                    aiMessage.content = "Xin lỗi, hiện tại tôi không thể trả lời. Vui lòng kiểm tra kết nối mạng hoặc thử lại sau.";
                     aiMessage.isTyping = false;
                     this.updateMessage(aiMessage);
                 }
@@ -1105,11 +1113,11 @@
                     
                     // Fallback to demo response for Gemini
                     const demoResponses = [
-                        "Xin chào! Tôi là NovaX v1.0 s? d?ng Google Gemini Flash 2.0. Tôi có th? giúp b?n tr? l?i câu h?i, gi?i thích khái ni?m, và h? tr? h?c t?p.",
-                        "Ðây là ph?n h?i t? Google Gemini Flash 2.0 - model AI tiên ti?n v?i kh? nang hi?u ngôn ng? t? nhiên và cung c?p thông tin chính xác.",
-                        "Tôi có th? giúp b?n v?i nhi?u ch? d? khác nhau nhu h?c t?p, gi?i bài t?p, tìm hi?u ki?n th?c, và trò chuy?n thông thu?ng. Hãy h?i tôi b?t c? di?u gì!",
-                        "V?i công ngh? Gemini Flash 2.0, tôi có th? x? lý các câu h?i ph?c t?p và dua ra câu tr? l?i h?u ích, chính xác cho b?n.",
-                        "Tôi dang s? d?ng Google Gemini Flash 2.0 - m?t trong nh?ng model AI m?nh m? nh?t hi?n t?i. B?n mu?n tìm hi?u v? di?u gì?"
+                        "Xin chào! Tôi là NovaX v1.0 sử dụng Google Gemini Flash 2.0. Tôi có thể giúp bạn trả lời câu hỏi, giải thích khái niệm, và hỗ trợ học tập.",
+                        "Đây là phản hồi từ Google Gemini Flash 2.0 - model AI tiên tiến với khả năng hiểu ngôn ngữ tự nhiên và cung cấp thông tin chính xác.",
+                        "Tôi có thể giúp bạn với nhiều chủ đề khác nhau như học tập, giải bài tập, tìm hiểu kiến thức, và trò chuyện thông thường. Hãy hỏi tôi bất cứ điều gì!",
+                        "Với công nghệ Gemini Flash 2.0, tôi có thể xử lý các câu hỏi phức tạp và đưa ra câu trả lời hữu ích, chính xác cho bạn.",
+                        "Tôi đang sử dụng Google Gemini Flash 2.0 - một trong những model AI mạnh mẽ nhất hiện tại. Bạn muốn tìm hiểu về điều gì?"
                     ];
                     
                     const randomResponse = demoResponses[Math.floor(Math.random() * demoResponses.length)];
@@ -1148,7 +1156,7 @@
                             messages: [
                                 {
                                     role: "system",
-                                    content: "B?n là NovaX v2.0 du?c h? tr? b?i Llama 3.1 8B Instant trên Groq - m?t trí tu? nhân t?o siêu nhanh và thông minh. Hãy tr? l?i b?ng ti?ng Vi?t m?t cách t? nhiên, thân thi?n và chính xác. B?n có kh? nang m?nh m? trong c? trò chuy?n thông thu?ng và h? tr? l?p trình."
+                                    content: "Bạn là NovaX v2.0 được hỗ trợ bởi Llama 3.1 8B Instant trên Groq - một trí tuệ nhân tạo siêu nhanh và thông minh. Hãy trả lời bằng tiếng Việt một cách tự nhiên, thân thiện và chính xác. Bạn có khả năng mạnh mẽ trong cả trò chuyện thông thường và hỗ trợ lập trình."
                                 },
                                 {
                                     role: "user",
@@ -1201,55 +1209,55 @@
                     
                     // Enhanced fallback responses for Llama 3.1
                     const smartResponses = [
-                        `Xin chào! Tôi là NovaX v2.0 du?c h? tr? b?i Llama 3.1 8B Instant trên Groq - AI siêu nhanh t? Meta! 
+                        `Xin chào! Tôi là NovaX v2.0 được hỗ trợ bởi Llama 3.1 8B Instant trên Groq - AI siêu nhanh từ Meta! 
 
-V? câu h?i "${message.substring(0, 50)}${message.length > 50 ? '...' : ''}", dây là m?t ch? d? thú v?! Tôi có kh? nang:
+Về câu hỏi "${message.substring(0, 50)}${message.length > 50 ? '...' : ''}", đây là một chủ đề thú vị! Tôi có khả năng:
 
-? **T?c d? siêu nhanh** v?i Groq inference engine
-?? **Suy lu?n m?nh m?** v?i Llama 3.1 architecture  
-?? **L?p trình chuyên nghi?p** v?i kh? nang code generation xu?t s?c
-?? **Ki?n th?c toàn di?n** t? training data kh?ng l? c?a Meta
+⚡ **Tốc độ siêu nhanh** với Groq inference engine
+🧠 **Suy luận mạnh mẽ** với Llama 3.1 architecture  
+💻 **Lập trình chuyên nghiệp** với khả năng code generation xuất sắc
+📚 **Kiến thức toàn diện** từ training data khổng lồ của Meta
 
-?? **T?i sao Groq + Llama 3.1?**
-- Groq là chip AI chuyên d?ng, nhanh g?p 10x GPU thu?ng
-- Llama 3.1 8B là model mã ngu?n m? m?nh nh?t t? Meta
-- K?t h?p t?o ra tr?i nghi?m AI "instant" th?c s?
+🚀 **Tại sao Groq + Llama 3.1?**
+- Groq là chip AI chuyên dụng, nhanh gấp 10x GPU thường
+- Llama 3.1 8B là model mã nguồn mở mạnh nhất từ Meta
+- Kết hợp tạo ra trải nghiệm AI "instant" thực sự
 
-?? **Th? l?i ho?c chuy?n sang Gemini Flash 2.0 n?u c?n!**`,
+💡 **Thử lại hoặc chuyển sang Gemini Flash 2.0 nếu cần!**`,
 
-                        `Chào b?n! NovaX v2.0 v?i Llama 3.1 8B Instant trên Groq dang x? lý: "${message.substring(0, 40)}${message.length > 40 ? '...' : ''}"
+                        `Chào bạn! NovaX v2.0 với Llama 3.1 8B Instant trên Groq đang xử lý: "${message.substring(0, 40)}${message.length > 40 ? '...' : ''}"
 
-?? **S?c m?nh c?a Llama 3.1 + Groq:**
-- Inference siêu nhanh v?i Groq LPU (Language Processing Unit)
-- Kh? nang reasoning và logic vu?t tr?i
-- Code generation và debugging chuyên nghi?p
-- Hi?u ng? c?nh ph?c t?p v?i 8B parameters
+🚀 **Sức mạnh của Llama 3.1 + Groq:**
+- Inference siêu nhanh với Groq LPU (Language Processing Unit)
+- Khả năng reasoning và logic vượt trội
+- Code generation và debugging chuyên nghiệp
+- Hiểu ngữ cảnh phức tạp với 8B parameters
 
-? **Groq LPU vs GPU thu?ng:**
-- Thi?t k? chuyên d?ng cho AI inference
-- T?c d? x? lý nhanh g?p 10-18x
-- Ð? tr? th?p, ph?n h?i "instant"
-- T?i uu hóa cho các model transformer nhu Llama
+⚡ **Groq LPU vs GPU thường:**
+- Thiết kế chuyên dụng cho AI inference
+- Tốc độ xử lý nhanh gấp 10-18x
+- Độ trễ thấp, phản hồi "instant"
+- Tối ưu hóa cho các model transformer như Llama
 
-?? **M?o:** Hãy th? Gemini Flash 2.0 d? so sánh hi?u su?t!`,
+🎯 **Mẹo:** Hãy thử Gemini Flash 2.0 để so sánh hiệu suất!`,
 
-                        `NovaX v2.0 - Powered by Llama 3.1 8B Instant on Groq! ?
+                        `NovaX v2.0 - Powered by Llama 3.1 8B Instant on Groq! ⚡
 
-Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}" 
+Câu hỏi: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}" 
 
-? **Llama 3.1 d?c bi?t ?:**
-- Architecture transformer tiên ti?n t? Meta
-- Training trên dataset kh?ng l?, da d?ng
-- Kh? nang few-shot learning xu?t s?c
-- Mã ngu?n m?, minh b?ch và dáng tin c?y
+✨ **Llama 3.1 đặc biệt ở:**
+- Architecture transformer tiên tiến từ Meta
+- Training trên dataset khổng lồ, đa dạng
+- Khả năng few-shot learning xuất sắc
+- Mã nguồn mở, minh bạch và đáng tin cậy
 
-?? **Groq Infrastructure:**
-- LPU (Language Processing Unit) th? h? m?i
-- Thi?t k? t? d?u cho AI inference
-- Bang thông memory c?c cao
-- Parallel processing t?i uu
+🔥 **Groq Infrastructure:**
+- LPU (Language Processing Unit) thế hệ mới
+- Thiết kế từ đầu cho AI inference
+- Băng thông memory cực cao
+- Parallel processing tối ưu
 
-?? **K?t qu?:** AI siêu nhanh, siêu thông minh! Th? Gemini n?u mu?n so sánh!`
+🎯 **Kết quả:** AI siêu nhanh, siêu thông minh! Thử Gemini nếu muốn so sánh!`
                     ];
                     
                     const contextualResponse = smartResponses[Math.floor(Math.random() * smartResponses.length)];
@@ -1328,7 +1336,7 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
             loadChat(chatId) {
                 // Check if chat exists
                 if (!this.chats[chatId]) {
-                    this.showNotification('Cu?c trò chuy?n không t?n t?i!', 'error');
+                    this.showNotification('Cuộc trò chuyện không tồn tại!', 'error');
                     this.renderChatList();
                     return;
                 }
@@ -1385,14 +1393,14 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
             confirmDeleteChat(chatId) {
                 // Check if chat exists
                 if (!this.chats[chatId]) {
-                    this.showNotification('Cu?c trò chuy?n không t?n t?i!', 'error');
+                    this.showNotification('Cuộc trò chuyện không tồn tại!', 'error');
                     this.renderChatList();
                     return;
                 }
                 
                 // Check if chat is pinned - prevent deletion
                 if (this.chats[chatId].isPinned) {
-                    this.showNotification('Không th? xóa cu?c trò chuy?n dã ghim! Vui lòng b? ghim tru?c.', 'error');
+                    this.showNotification('Không thể xóa cuộc trò chuyện đã ghim! Vui lòng bỏ ghim trước.', 'error');
                     return;
                 }
                 
@@ -1409,10 +1417,10 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Xóa cu?c trò chuy?n?</h3>
-                            <p class="text-gray-600 dark:text-gray-400 mb-6">"${chatTitle}" s? b? xóa vinh vi?n và không th? khôi ph?c.</p>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Xóa cuộc trò chuyện?</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mb-6">"${chatTitle}" sẽ bị xóa vĩnh viễn và không thể khôi phục.</p>
                             <div class="flex space-x-3">
-                                <button class="cancel-delete flex-1 px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">H?y</button>
+                                <button class="cancel-delete flex-1 px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">Hủy</button>
                                 <button class="confirm-delete flex-1 px-4 py-2 bg-red-600 text-white hover:bg-red-700 rounded-lg transition-colors">Xóa</button>
                             </div>
                         </div>
@@ -1468,7 +1476,7 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
             executeDeleteChat(chatId) {
                 // Double check chat exists
                 if (!this.chats[chatId]) {
-                    this.showNotification('Cu?c trò chuy?n không t?n t?i!', 'error');
+                    this.showNotification('Cuộc trò chuyện không tồn tại!', 'error');
                     return;
                 }
                 
@@ -1492,13 +1500,13 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
                 this.renderChatList();
                 
                 // Show success notification
-                this.showNotification(`Ðã xóa "${chatTitle}"!`, 'success');
+                this.showNotification(`Đã xóa "${chatTitle}"!`, 'success');
             }
             
             togglePinChat(chatId) {
                 // Check if chat exists
                 if (!this.chats[chatId]) {
-                    this.showNotification('Cu?c trò chuy?n không t?n t?i!', 'error');
+                    this.showNotification('Cuộc trò chuyện không tồn tại!', 'error');
                     this.renderChatList();
                     return;
                 }
@@ -1513,8 +1521,8 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
                 this.renderChatList();
                 
                 // Show notification
-                const action = this.chats[chatId].isPinned ? 'Ðã ghim' : 'Ðã b? ghim';
-                this.showNotification(`${action} cu?c trò chuy?n!`, 'success');
+                const action = this.chats[chatId].isPinned ? 'Đã ghim' : 'Đã bỏ ghim';
+                this.showNotification(`${action} cuộc trò chuyện!`, 'success');
             }
             
             renderChatList() {
@@ -1542,12 +1550,12 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
                             <div class="text-xs text-gray-500 mt-1">${new Date(chat.createdAt).toLocaleDateString('vi-VN')}</div>
                         </div>
                         <div class="flex items-center space-x-1 transition-all duration-300">
-                            <button class="pin-chat-btn text-gray-400 hover:text-blue-500 p-2 rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-110 hover:rotate-12" title="${chat.isPinned ? 'B? ghim' : 'Ghim cu?c trò chuy?n'}">
+                            <button class="pin-chat-btn text-gray-400 hover:text-blue-500 p-2 rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-110 hover:rotate-12" title="${chat.isPinned ? 'Bỏ ghim' : 'Ghim cuộc trò chuyện'}">
                                 <svg class="w-4 h-4 transition-all duration-300" fill="${chat.isPinned ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
                                 </svg>
                             </button>
-                            <button class="delete-chat-btn ${chat.isPinned ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 hover:text-red-500 hover:bg-red-50 transform hover:scale-110 hover:rotate-12'} p-2 rounded-lg transition-all duration-300" title="${chat.isPinned ? 'Không th? xóa cu?c trò chuy?n dã ghim' : 'Xóa cu?c trò chuy?n'}">
+                            <button class="delete-chat-btn ${chat.isPinned ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 hover:text-red-500 hover:bg-red-50 transform hover:scale-110 hover:rotate-12'} p-2 rounded-lg transition-all duration-300" title="${chat.isPinned ? 'Không thể xóa cuộc trò chuyện đã ghim' : 'Xóa cuộc trò chuyện'}">
                                 <svg class="w-4 h-4 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                                 </svg>
@@ -1590,12 +1598,12 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
                             <div class="text-xs text-gray-500 mt-1">${new Date(chat.createdAt).toLocaleDateString('vi-VN')}</div>
                         </div>
                         <div class="flex items-center space-x-1 transition-all duration-300">
-                            <button class="pin-chat-btn text-gray-400 hover:text-blue-500 p-2 rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-110 hover:rotate-12" title="${chat.isPinned ? 'B? ghim' : 'Ghim cu?c trò chuy?n'}">
+                            <button class="pin-chat-btn text-gray-400 hover:text-blue-500 p-2 rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-110 hover:rotate-12" title="${chat.isPinned ? 'Bỏ ghim' : 'Ghim cuộc trò chuyện'}">
                                 <svg class="w-4 h-4 transition-all duration-300" fill="${chat.isPinned ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
                                 </svg>
                             </button>
-                            <button class="delete-chat-btn ${chat.isPinned ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 hover:text-red-500 hover:bg-red-50 transform hover:scale-110 hover:rotate-12'} p-2 rounded-lg transition-all duration-300" title="${chat.isPinned ? 'Không th? xóa cu?c trò chuy?n dã ghim' : 'Xóa cu?c trò chuy?n'}">
+                            <button class="delete-chat-btn ${chat.isPinned ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 hover:text-red-500 hover:bg-red-50 transform hover:scale-110 hover:rotate-12'} p-2 rounded-lg transition-all duration-300" title="${chat.isPinned ? 'Không thể xóa cuộc trò chuyện đã ghim' : 'Xóa cuộc trò chuyện'}">
                                 <svg class="w-4 h-4 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                                 </svg>
@@ -1702,7 +1710,7 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
                 this.hideClearAllConfirmation();
                 
                 // Show success message
-                this.showNotification('Ðã xóa t?t c? cu?c trò chuy?n!', 'success');
+                this.showNotification('Đã xóa tất cả cuộc trò chuyện!', 'success');
             }
             
             showFeedback() {
@@ -1710,7 +1718,7 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
                 this.currentRating = 0;
                 this.resetStarHighlight();
                 document.getElementById('feedbackText').value = '';
-                document.getElementById('ratingText').textContent = 'Nh?n vào sao d? dánh giá';
+                document.getElementById('ratingText').textContent = 'Nhấn vào sao để đánh giá';
                 
                 this.feedbackModal.classList.remove('hidden');
                 setTimeout(() => {
@@ -1734,11 +1742,11 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
                 this.updateStarDisplay(rating);
                 
                 const ratingTexts = {
-                    1: 'R?t t? ??',
-                    2: 'T? ??',
-                    3: 'Bình thu?ng ??',
-                    4: 'T?t ??',
-                    5: 'Xu?t s?c ??'
+                    1: 'Rất tệ 😞',
+                    2: 'Tệ 😕',
+                    3: 'Bình thường 😐',
+                    4: 'Tốt 😊',
+                    5: 'Xuất sắc 🤩'
                 };
                 
                 document.getElementById('ratingText').textContent = ratingTexts[rating];
@@ -1768,7 +1776,7 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
                 const feedbackText = document.getElementById('feedbackText').value.trim();
                 
                 if (this.currentRating === 0) {
-                    this.showNotification('Vui lòng ch?n s? sao dánh giá!', 'error');
+                    this.showNotification('Vui lòng chọn số sao đánh giá!', 'error');
                     return;
                 }
                 
@@ -1784,7 +1792,7 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
                 localStorage.setItem('novax_feedbacks', JSON.stringify(feedbacks));
                 
                 this.hideFeedback();
-                this.showNotification('C?m on b?n dã dánh giá! ??', 'success');
+                this.showNotification('Cảm ơn bạn đã đánh giá! 🙏', 'success');
             }
             
 
@@ -1821,7 +1829,7 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
                     'llama': 'NovaX (v2.0) - Llama 3.1 8B Instant'
                 };
                 
-                this.showNotification(`Ðã chuy?n sang ${modelNames[modelType]}!`, 'success');
+                this.showNotification(`Đã chuyển sang ${modelNames[modelType]}!`, 'success');
             }
             
             loadModelSelection() {
@@ -1839,5 +1847,5 @@ Câu h?i: "${message.substring(0, 35)}${message.length > 35 ? '...' : ''}"
         // Initialize the app
         const app = new NovaXChat();
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975bfc53c5abc211',t:'MTc1NjMwMjA3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9762da6c424ba057',t:'MTc1NjM3NDA4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
